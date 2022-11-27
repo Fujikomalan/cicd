@@ -1,7 +1,7 @@
 name: CI
 
 env:
-  REGISTRY: ghcr.io
+
   IMAGE_SHA: ${{ GITHUB_SHA }}
 
 on:
