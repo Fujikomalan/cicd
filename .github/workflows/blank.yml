@@ -25,4 +25,4 @@ jobs:
         with:
           push: true
           context: .
-          tags: myapp:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/myapp:latest
