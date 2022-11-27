@@ -2,7 +2,7 @@ name: CI
 
 env:
 
-  IMAGE_SHA: ${{ GITHUB_SHA }}
+  IMAGE_SHA: $GITHUB_SHA
 
 on:
   push:
