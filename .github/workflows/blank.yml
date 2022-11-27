@@ -33,4 +33,4 @@ jobs:
           image: repo/image
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/myapp:latest
-            ${{ secrets.DOCKER_USERNAME }}/myapp:${{ echo $GITHUB_SHA }}
+            ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.sha }}
