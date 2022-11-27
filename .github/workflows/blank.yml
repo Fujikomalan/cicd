@@ -25,7 +25,7 @@ jobs:
         with:
           push: true
           context: .
-          tags: 
-            - ${{ secrets.DOCKER_USERNAME }}/myapp:latest
-            - ${{ secrets.DOCKER_USERNAME }}/myapp:${GITHUB_SHA::6}
-            - ${{ secrets.DOCKER_USERNAME }}/myapp:${GITHUB_RUN_ID}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+            ${{ secrets.DOCKER_USERNAME }}/myapp:${GITHUB_SHA::6}
+            ${{ secrets.DOCKER_USERNAME }}/myapp:${GITHUB_RUN_ID}
