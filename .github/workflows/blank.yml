@@ -34,3 +34,4 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/myapp:latest
             ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.sha }}
+            ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.sha:0:7 }}
