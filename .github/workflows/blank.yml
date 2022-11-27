@@ -1,4 +1,9 @@
 name: CI
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_SHA: ${{ GITHUB_SHA }}
+
 on:
   push:
     branches: [ "main" ]
@@ -25,5 +30,7 @@ jobs:
         with:
           push: true
           context: .
-          image: ${{ secrets.DOCKER_USERNAME }}/myapp
-          tags: latest, $GITHUB_SHA
+          image: repo/image
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/myapp:latest
+            ${{ secrets.DOCKER_USERNAME }}/myapp:${{ env.IMAGE_SHA }}
