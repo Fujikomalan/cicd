@@ -15,6 +15,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      SHORT_TAG: ${{ github.sha:0:7 }}
     steps:
       - name: "Checkout to branch"
         uses: actions/checkout@v3
@@ -34,4 +36,4 @@ jobs:
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/myapp:latest
             ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.sha }}
-            ${{ secrets.DOCKER_USERNAME }}/myapp:${{ github.sha:0:7 }}
+            ${{ secrets.DOCKER_USERNAME }}/myapp:${{ env.SHORT_TAG }}
