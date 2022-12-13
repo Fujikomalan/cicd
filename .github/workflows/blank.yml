@@ -27,7 +27,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region:  ${{ secrets.AWS_DEFAULT_REGION }}
       
+      - name: "Creating Vault Password File To Decrypt Playbook"
+        run: |
+          echo "$VAULT_PASS" > ./vault_secret.txt
+          
       - name: "Running Playbook"
         run: |
-          ansible-playbook deployment.yml
+          ansible-playbook deployment.yml --vault-password-file=./vault_secret.txt
        
