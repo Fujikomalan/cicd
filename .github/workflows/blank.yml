@@ -27,3 +27,7 @@ jobs:
           ansible --version
           python --version
           python3  --version
+          echo ${DOCKER_ENV}
+        env:
+          DOCKER_ENV: ${{ secrets.DOCKER_USERNAME }}
+       
