@@ -3,13 +3,12 @@
   hosts: localhost
   become: false
   gather_facts: false
+  vars_files:
+    - variables.yml
   tasks:
     - name: "Installing Docker Python Extension"
       pip:
-        name:
-          - boto
-          - boto3
-          - botocore
+        name: "{{ docker_extension }}"
           
     - name: "Fetching Az Details"
       amazon.aws.aws_az_info:
