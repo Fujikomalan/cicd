@@ -10,15 +10,9 @@
           - boto
           - boto3
           - botocore
-      
-    - debug:
-        access_key: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
-        
+          
     - name: "Fetching Az Details"
       amazon.aws.aws_az_info:
-        access_key: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
-        secret_key: "{{ lookup('env','AWS_SECRET_ACCESS_KEY') }}"
-        region: "{{ lookup('env','AWS_DEFAULT_REGION') }}"
       register: az_info
 
     - debug:
