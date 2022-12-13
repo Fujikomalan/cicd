@@ -27,7 +27,7 @@ jobs:
           ansible --version
           python --version
           python3  --version
-          echo API_KEY=${AWS_SECRET} >> aws.vars.tmp
+          echo ${AWS_SECRET} >> aws.vars.tmp
           cat aws.vars.tmp
         env:
           AWS_SECRET: ${{ secrets.AWS_ACCESS_KEY_ID }}
