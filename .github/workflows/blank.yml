@@ -20,24 +20,14 @@ jobs:
       - name: "Checkout to branch"
         uses: actions/checkout@v3
         
-      - name: "working directory"
+      - name: "Configure AWS Credentials"
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region:  ${{ secrets.AWS_DEFAULT_REGION }}
+      
+      - name: "Running Playbook"
         run: |
-          ls -al
-          pwd
-          ansible --version
-          python --version
-          python3  --version
-          echo ${{ secrets.AWS_ACCESS_KEY_ID }}  |  sed 's/./& /g'  >> aws.vars.tmp
-          cat aws.vars.tmp
-        env:
-          AWS_SECRET: ${{ secrets.AWS_ACCESS_KEY_ID }}
-
-        
-#       - name: "running playing book"
-#         run: |
-#           ansible-playbook deployment.yml
-#         env:
-#           AWS_ACCESS_KEY_ID:: ${{ secrets.AWS_ACCESS_KEY_ID }}
-#           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-#           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+          ansible-playbook deployment.yml
        
