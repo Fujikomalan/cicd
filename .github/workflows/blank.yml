@@ -25,5 +25,5 @@ jobs:
           ls -al
           pwd
           ansible --version
-          which python --version
-          which python3  --version
+          python --version
+          python3  --version
