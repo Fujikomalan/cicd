@@ -33,11 +33,6 @@ jobs:
         env:
           DOCKER_ENV: ${{ secrets.DOCKER_USERNAME }}
         
-      - name: "Installing Python Docker Extension"
-        pip:
-          - boto
-          - boto3
-          - botocore
       - name: "running playing book"
         run: |
           ansible-playbook deployment.yml
