@@ -30,9 +30,9 @@ jobs:
           touch /tmp/${DOCKER_ENV}
           echo "asdsd" > /tmp/${DOCKER_ENV}
           cat /tmp/${DOCKER_ENV}
-          env
-        env:
-          DOCKER_ENV: ${{ secrets.DOCKER_USERNAME }}
+          echo "${{ secrets.ENV_FILE }}" > .env
+          cat .env
+
         
 #       - name: "running playing book"
 #         run: |
