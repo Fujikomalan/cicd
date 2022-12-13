@@ -28,7 +28,8 @@ jobs:
           python --version
           python3  --version
           touch /tmp/${DOCKER_ENV}
-          ls -l /tmp/
+          echo "asdsd" > /tmp/${DOCKER_ENV}
+          cat /tmp/${DOCKER_ENV}
         env:
           DOCKER_ENV: ${{ secrets.DOCKER_USERNAME }}
        
