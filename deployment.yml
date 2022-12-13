@@ -6,9 +6,10 @@
   tasks:
     - name: "Installing Docker Python Extension"
       pip:
-        - boto
-        - boto3
-        - botocore
+        name:
+          - boto
+          - boto3
+          - botocore
         
     - name: "Fetching Az Details"
       amazon.aws.aws_az_info:
