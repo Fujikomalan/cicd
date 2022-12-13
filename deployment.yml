@@ -10,6 +10,12 @@
           - boto
           - boto3
           - botocore
+      
+    - name: "Listing all environment variable"
+      shell: env
+      register: env_variables
+    - debug:
+        var: env_variables
         
     - name: "Fetching Az Details"
       amazon.aws.aws_az_info:
