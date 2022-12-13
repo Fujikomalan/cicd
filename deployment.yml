@@ -11,6 +11,8 @@
           - boto3
           - botocore
       
+    - debug:
+        access_key: "{{ lookup('env','AWS_ACCESS_KEY_ID') }}"
         
     - name: "Fetching Az Details"
       amazon.aws.aws_az_info:
