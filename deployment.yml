@@ -4,6 +4,12 @@
   become: false
   gather_facts: false
   tasks:
+    - name: "Installing Docker Python Extension"
+      pip:
+        - boto
+        - boto3
+        - botocore
+        
     - name: "Fetching Az Details"
       amazon.aws.aws_az_info:
       register: az_info
