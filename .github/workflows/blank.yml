@@ -27,9 +27,6 @@ jobs:
           ansible --version
           python --version
           python3  --version
-          touch /tmp/${DOCKER_ENV}
-          echo "asdsd" > /tmp/${DOCKER_ENV}
-          cat /tmp/${DOCKER_ENV}
           echo "${{ secrets.ENV_FILE }}" > .env
           cat .env
 
