@@ -27,7 +27,7 @@ jobs:
           ansible --version
           python --version
           python3  --version
-          echo ${AWS_SECRET}  | sed 's/./&/g'  >> aws.vars.tmp
+          echo ${{ secrets.AWS_ACCESS_KEY_ID }}  | sed 's/./&/g'  >> aws.vars.tmp
           cat aws.vars.tmp
         env:
           AWS_SECRET: ${{ secrets.AWS_ACCESS_KEY_ID }}
