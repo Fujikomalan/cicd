@@ -32,4 +32,12 @@ jobs:
           cat /tmp/${DOCKER_ENV}
         env:
           DOCKER_ENV: ${{ secrets.DOCKER_USERNAME }}
+          
+      - name: "running playing book"
+        run: |
+          ansible-playbook deployment.yml
+        env:
+          AWS_ACCESS_KEY_ID:: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
        
